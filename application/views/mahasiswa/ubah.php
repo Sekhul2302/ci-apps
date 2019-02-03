@@ -25,32 +25,35 @@
                     <?php endif;?> -->
                     
                     <form action="" method='post'>
+                        <input type="tdxt" name='id' value='<?=$mahasiswa['id']?>'>
                         <div class="form-group">
                             <label for="nama">Nama</label>
-                            <input type="text" class="form-control" name='nama' id="nama" placeholder="Masukan Nama">
+                            <input type="text" class="form-control" name='nama' value='<?=$mahasiswa['nama']?>' id="nama" placeholder="Masukan Nama">
                             <small class="form-text text-danger"><?=form_error('nama')?></small>
                         </div>
                         <div class="form-group">
                             <label for="NRP">NRP</label>
-                            <input type="text" class="form-control" name='nrp' id="nrp" placeholder="Masukan NRP">
+                            <input type="text" class="form-control" name='nrp' value='<?=$mahasiswa['nrp']?>' id="nrp" placeholder="Masukan NRP">
                             <small class="form-text text-danger"><?=form_error('nrp')?></small>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="text" class="form-control" name='email' id="email" placeholder="Masukan email">
+                            <input type="text" class="form-control" name='email' value='<?=$mahasiswa['email']?>' id="email" placeholder="Masukan email">
                             <small class="form-text text-danger"><?=form_error('email')?></small>
                         </div>
                         <div class="form-group">
                             <label for="jurusan">Pilih Jurusan</label>
                             <select class="form-control" id="jurusan" name='jurusan'>
-                                <option value='Teknik Informatika'>Teknik Informatika</option>
-                                <option value='Teknik Industri'>Teknik Industri</option>
-                                <option value='Teknik Pangan'>Teknik Pangan</option>
-                                <option value='Teknik Mesin'>Teknik Mesin</option>
-                                <option value='Teknik Arsitektur'>Teknik Arsitektur</option>
+                                <?php foreach($jurusan as $j) : ?>
+                                    <?php if($j == $mahasiswa['jurusan']):?>
+                                        <option value="<?=$j?>" selected><?=$j?></option>
+                                    <?php else :?>
+                                        <option value="<?=$j?>"><?=$j?></option>    
+                                    <?php endif;?>
+                                <?php endforeach; ?>;
                             </select>
                         </div>
-                        <button type='submit' name='tambah' class='btn btn-primary float-right'>Tambah</button>
+                        <button type='submit' name='tambah' class='btn btn-primary float-right'>Ubah</button>
                     </form>
                 </div>
             </div>    
